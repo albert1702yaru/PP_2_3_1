@@ -18,35 +18,35 @@ public class UserController {
     }
 
     @RequestMapping("/")
-    public String allUsers(Model model){
+    public String allUsers(Model model) {
         List<User> users = userService.getUserList();
         model.addAttribute("allUser", users);
         return "all-user";
     }
 
     @RequestMapping("/addUsers")
-    public String addNewUsers(Model model){
+    public String addNewUsers(Model model) {
         User user = new User();
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         return "user-info";
     }
 
     @RequestMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") User user){
+    public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 
     @RequestMapping("/updateUser")
-    public String updateUser(@RequestParam("userId") Long id, Model model){
-        User user  = userService.getUser(id);
+    public String updateUser(@RequestParam("userId") Long id, Model model) {
+        User user = userService.getUser(id);
         model.addAttribute("user", user);
         return "user-info";
     }
 
     @RequestMapping("/deleteUser")
-    public String deleteUser(@RequestParam("userId")Long id){
-    userService.deleteUser(id);
+    public String deleteUser(@RequestParam("userId") Long id) {
+        userService.deleteUser(id);
         return "redirect:/";
     }
 

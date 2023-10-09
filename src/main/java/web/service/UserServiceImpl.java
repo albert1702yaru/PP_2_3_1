@@ -1,7 +1,5 @@
 package web.service;
 
-
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<User> getUserList() {
-       return userDao.getUserList();
+        return userDao.getUserList();
     }
 
     @Override
@@ -35,12 +33,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User getUser(Long id) {
-       return userDao.getUser(id);
+        return userDao.getUser(id);
     }
 
     @Override
     @Transactional
-    public void updateUser( User user) {
+    public void updateUser(User user) {
         userDao.updateUser(user);
     }
 
