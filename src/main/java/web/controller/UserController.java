@@ -37,11 +37,19 @@ public class UserController {
         return "redirect:/";
     }
 
+    @RequestMapping("/upUser")
+    public String upUser(@ModelAttribute("user") User user) {
+        userService.updateUser(user);
+        System.out.println(user);
+        return "redirect:/";
+    }
+
     @RequestMapping("/updateUser")
     public String updateUser(@RequestParam("userId") Long id, Model model) {
         User user = userService.getUser(id);
+        user.setId(id);
         model.addAttribute("user", user);
-        return "user-info";
+        return "update-user";
     }
 
     @RequestMapping("/deleteUser")
